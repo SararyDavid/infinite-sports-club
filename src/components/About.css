@@ -1,0 +1,224 @@
+/* =============================================
+   ABOUT / WHY INFINITE SECTION
+   ============================================= */
+
+.about {
+  padding: var(--section-pad);
+  background: var(--black-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,107,0,0.4), transparent);
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,107,0,0.2), transparent);
+}
+
+.about__container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.about__header {
+  margin-bottom: 64px;
+  max-width: 640px;
+}
+
+.about__title {
+  line-height: 1.05;
+}
+
+.about__title-accent {
+  color: var(--orange);
+}
+
+.about__subtitle {
+  margin-top: 16px;
+}
+
+/* Cards Grid */
+.about__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Single Card */
+.about__card {
+  position: relative;
+  background: var(--black-3);
+  border: 1px solid var(--white-10);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px 36px;
+  overflow: hidden;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  cursor: default;
+}
+
+.about__card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 107, 0, 0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,107,0,0.08);
+}
+
+.about__card:hover .about__card-bar {
+  width: 100%;
+}
+
+.about__card:hover .about__card-icon {
+  color: var(--orange);
+  background: rgba(255, 107, 0, 0.15);
+}
+
+/* Number accent */
+.about__card-num {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--white-10);
+  user-select: none;
+  transition: color var(--transition-base);
+}
+
+.about__card:hover .about__card-num {
+  color: rgba(255,107,0,0.1);
+}
+
+/* Icon */
+.about__card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--black-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-light);
+  margin-bottom: 28px;
+  transition: all var(--transition-base);
+}
+
+.about__card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Title */
+.about__card-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+/* Tagline */
+.about__card-tagline {
+  display: inline-block;
+  font-family: var(--font-condensed);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+/* Description */
+.about__card-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--gray-pale);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Highlights */
+.about__card-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about__card-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-condensed);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gray-pale);
+}
+
+.about__card-bullet {
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Bottom accent bar */
+.about__card-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--orange), var(--orange-bright));
+  border-radius: 0 2px 0 0;
+  transition: width 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .about__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__cards > :last-child {
+    grid-column: 1 / -1;
+    max-width: 480px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 72px 24px;
+  }
+
+  .about__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about__cards > :last-child {
+    grid-column: auto;
+    max-width: none;
+    justify-self: auto;
+  }
+
+  .about__card {
+    padding: 32px 24px;
+  }
+}

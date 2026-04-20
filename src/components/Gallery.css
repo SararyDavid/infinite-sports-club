@@ -1,0 +1,219 @@
+/* =============================================
+   GALLERY SECTION
+   ============================================= */
+
+.gallery {
+  padding: var(--section-pad);
+  background: var(--black);
+  position: relative;
+}
+
+/* Header */
+.gallery__header {
+  margin-bottom: 56px;
+}
+
+.gallery__title-accent {
+  color: var(--orange);
+}
+
+.gallery__header .section-subtitle {
+  margin-top: 16px;
+}
+
+/* Grid */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 12px;
+}
+
+/* Items */
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: var(--black-4);
+}
+
+.gallery__item--wide {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.gallery__item:hover .gallery__img {
+  transform: scale(1.08);
+}
+
+/* Overlay */
+.gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15,15,15,0.85) 0%,
+    rgba(15,15,15,0.3) 50%,
+    rgba(255,107,0,0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery__item:hover .gallery__overlay {
+  opacity: 1;
+}
+
+.gallery__overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  transform: translateY(12px);
+  transition: transform var(--transition-base);
+}
+
+.gallery__item:hover .gallery__overlay-content {
+  transform: translateY(0);
+}
+
+.gallery__label {
+  font-family: var(--font-condensed);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+}
+
+/* Lightbox */
+.gallery__lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.gallery__lb-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white-10);
+  border: 1px solid var(--white-30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.gallery__lb-close:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: rotate(90deg);
+}
+
+.gallery__lb-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.gallery__lb-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery__lb-label {
+  font-family: var(--font-condensed);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-pale);
+}
+
+.gallery__lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--white-10);
+  border: 1px solid var(--white-30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.gallery__lb-nav:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.gallery__lb-nav--prev { left: 24px; }
+.gallery__lb-nav--next { right: 24px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery__item--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    padding: 72px 24px;
+  }
+
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__item--wide {
+    grid-column: span 1;
+  }
+
+  .gallery__lb-nav {
+    display: none;
+  }
+}
