@@ -10,7 +10,7 @@ const contactDetails = [
       </svg>
     ),
     label: 'Address',
-    lines: ['123 Infinite Way, Fitness District', 'New York, NY 10001'],
+    lines: ['Street Toul Pong Ror, Sangkat Chaom Chao1','Khan Posenchey, Phnom Penh, Cambodia' ],
   },
   {
     icon: (
@@ -19,7 +19,7 @@ const contactDetails = [
       </svg>
     ),
     label: 'Phone',
-    lines: ['+1 (555) 000-1234', 'Mon – Fri, 9am – 6pm EST'],
+    lines: ['+(855) 099-703-030'],
   },
   {
     icon: (
