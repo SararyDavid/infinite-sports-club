@@ -32,8 +32,8 @@ const galleryItems = [
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1598971639058-a47d38eba9f5?w=800&q=80',
-    thumb: 'https://images.unsplash.com/photo-1598971639058-a47d38eba9f5?w=400&q=80',
+    src: 'https://stock.adobe.com/search?k=yoga+photos',
+    thumb: 'https://stock.adobe.com/search?k=yoga+photos',
     label: 'Yoga & Recovery',
     span: 'normal',
   },
