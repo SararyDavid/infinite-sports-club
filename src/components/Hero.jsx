@@ -17,10 +17,7 @@ function Hero() {
 
       {/* Content */}
       <div className="hero__content container">
-        <div className="hero__badge fade-in" style={{ animationDelay: '0.1s' }}>
-          <span className="hero__badge-dot" />
-          Est. 2018 · Premium Fitness Club
-        </div>
+        
 
         <h1 className="hero__heading fade-in-up" style={{ animationDelay: '0.2s' }}>
           Train<br />
