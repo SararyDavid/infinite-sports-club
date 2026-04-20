@@ -25,7 +25,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
 }
 
 /* Logo */
@@ -59,9 +59,11 @@
   display: flex;
   align-items: center;
   gap: 36px;
-  margin-left: auto;
 }
-
+.navbar__links {
+  flex: 1;
+  justify-content: center;
+}
 .navbar__link {
   font-family: var(--font-condensed);
   font-size: 0.88rem;
@@ -226,8 +228,16 @@
     padding: 10px 0;
   }
 
+}
+
+@media (max-width: 900px) {
+
   .navbar__cta {
-    width: 100%;
+    width: auto;
+  }
+
+  .navbar__inner {
+    justify-content: space-between;
   }
 }
 
