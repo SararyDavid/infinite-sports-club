@@ -191,3 +191,50 @@
     display: flex;
   }
 }
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 16px 18px;
+  }
+
+  .navbar--scrolled {
+    padding: 12px 18px;
+  }
+
+  .navbar__inner {
+    gap: 16px;
+  }
+
+  .navbar__logo-text {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+  }
+
+  .navbar__burger {
+    margin-left: auto;
+  }
+
+  /* Mobile menu fix */
+  .navbar__mobile {
+    padding: 18px 18px 24px;
+    gap: 14px;
+  }
+
+  .navbar__mobile-link {
+    font-size: 1.05rem;
+    padding: 10px 0;
+  }
+
+  .navbar__cta {
+    width: 100%;
+  }
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+.navbar__mobile {
+  transition: all 0.25s ease;
+}
