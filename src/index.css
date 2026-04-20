@@ -260,3 +260,37 @@ button {
   background: var(--orange);
   color: var(--white);
 }
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 16px !important;
+  }
+
+  h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.6rem !important;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__content,
+  .about__grid,
+  .membership__grid,
+  .trainer__grid,
+  .contact__grid {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+  }
+}
