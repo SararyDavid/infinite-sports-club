@@ -10,7 +10,10 @@ const contactDetails = [
       </svg>
     ),
     label: 'Address',
-    lines: ['Street Toul Pong Ror, Sangkat Chaom Chao1','Khan Posenchey, Phnom Penh, Cambodia' ],
+    lines: [
+            '#42 Street 288, Sangkat Boeng Keng Kang I',
+            'Khan Boeng Keng Kang, Phnom Penh, Cambodia'
+            ],
   },
   {
     icon: (
@@ -19,7 +22,7 @@ const contactDetails = [
       </svg>
     ),
     label: 'Phone',
-    lines: ['+(855) 099-703-030'],
+    lines: ['+(855) 061-809-710'],
   },
   {
     icon: (

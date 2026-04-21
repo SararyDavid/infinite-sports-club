@@ -26,7 +26,7 @@ function Hero() {
         </h1>
 
         <p className="hero__subheading fade-in-up" style={{ animationDelay: '0.4s' }}>
-          Welcome to <strong>Infinite Sports Club</strong> — Where Strength Meets Discipline.
+          Welcome to <strong>Infinite Sports</strong> — Where Strength Meets Discipline.
           Push beyond every boundary. Build the body. Forge the mind.
         </p>
 

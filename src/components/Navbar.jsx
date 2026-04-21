@@ -37,7 +37,7 @@ function Navbar() {
             </svg>
           </span>
           <span className="navbar__logo-text">
-            INFINITE<span className="navbar__logo-accent"> SPORTS CLUB</span>
+            INFINITE<span className="navbar__logo-accent"> SPORTS</span>
           </span>
         </a>
 

@@ -130,7 +130,7 @@ function Footer() {
         {/* Bottom bar */}
         <div className="footer__bottom">
           <p className="footer__copy">
-            © {new Date().getFullYear()} Infinite Sports Club. All rights reserved.
+            © {new Date().getFullYear()} Infinite Sports. All rights reserved.
           </p>
           <div className="footer__bottom-links">
             <a href="#">Privacy</a>

@@ -56,13 +56,13 @@ function About() {
       <div className="about__container container">
         {/* Header */}
         <div className="about__header">
-          <span className="section-label">Why Infinite Sports Club</span>
+          <span className="section-label">Why Infinite Sports</span>
           <h2 className="section-title about__title">
             Three Pillars of<br />
             <span className="about__title-accent">Greatness</span>
           </h2>
           <p className="section-subtitle about__subtitle">
-            We built Infinite Sports Club on the belief that anyone can achieve
+            We built Infinite Sports on the belief that anyone can achieve
             extraordinary results — with the right environment, knowledge, and community.
           </p>
         </div>
