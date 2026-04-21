@@ -9,16 +9,14 @@
   right: 0;
   z-index: 1000;
   padding: 20px 28px;
-  transition: background var(--transition-base), padding var(--transition-base), backdrop-filter var(--transition-base);
+  transition: all var(--transition-base);
   backdrop-filter: blur(10px);
 }
 
 .navbar--scrolled {
-  background: rgba(15, 15, 15, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 16px 30px;
-  border-bottom: 1px solid rgba(255, 107, 0, 0.12);
+  background: rgba(15, 15, 15, 0.95);
+  padding: 12px 28px;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.2);
 }
 
 .navbar__inner {
@@ -70,13 +68,19 @@
   transition: color var(--transition-fast);
 }
 
-/* CTA & Burger */
+/* CTA */
 .navbar__cta {
   flex-shrink: 0;
   padding: 10px 24px;
   font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 4px;
 }
 
+/* Burger */
 .navbar__burger {
   display: none;
   flex-direction: column;
@@ -90,10 +94,10 @@
   width: 24px;
   height: 2px;
   background: var(--white);
-  transition: all var(--transition-base);
+  transition: all 0.3s ease;
 }
 
-/* Mobile Menu */
+/* Mobile Menu Container */
 .navbar__mobile {
   display: none;
   position: absolute;
@@ -102,13 +106,13 @@
   right: 0;
   background: rgba(15, 15, 15, 0.98);
   backdrop-filter: blur(20px);
-  padding: 24px 32px;
+  padding: 24px;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   pointer-events: none;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 .navbar__mobile--open {
@@ -117,47 +121,65 @@
   pointer-events: all;
 }
 
-/* Responsive Fixes */
-/* Responsive Fixes */
+/* --- MOBILE SPECIFIC FIXES --- */
 @media (max-width: 900px) {
   .navbar__links {
     display: none;
   }
 
   .navbar__inner {
-    display: flex;
-    justify-content: space-between; /* Pushes Logo left, CTA group right */
-    align-items: center;
-    width: 100%;
+    justify-content: space-between;
   }
 
-  /* Wrap CTA and Burger in a group if possible, or just style CTA like this: */
   .navbar__cta {
     display: flex;
-    order: 2; /* Ensures it stays after the logo */
-    margin-left: auto; /* Pushes it against the burger */
-    margin-right: 15px;
-    padding: 8px 16px; 
-    font-size: 0.75rem;
-    height: 40px; /* Force a consistent height */
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    margin-left: auto; /* Pushes button and burger to the right */
+    margin-right: 12px; /* Gap between button and burger */
+  }
+
+  .navbar__burger {
+    display: flex;
+  }
+
+  .navbar__mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    /* Restore transparency with a blur effect */
+    background: rgba(15, 15, 15, 0.5) !important; 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    height: 80px; 
+    display: flex;
     align-items: center;
+  }
+
+  .navbar__inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .navbar__cta {
+    display: flex;
+    margin-left: auto; 
+    margin-right: 15px;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 4px;
     white-space: nowrap;
   }
 
   .navbar__burger {
     display: flex;
-    order: 3;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 10px 15px; /* Tighter padding on mobile */
-    height: 70px; 
-    background: rgba(15, 15, 15, 0.98); /* Solid background to prevent text bleed */
-  }
-
-  .navbar__logo-text {
-    font-size: 0.85rem; /* Shrink logo text so it doesn't hit the button */
   }
 }

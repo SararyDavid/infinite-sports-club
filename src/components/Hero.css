@@ -261,52 +261,52 @@
 }
 
 /* Responsive Fixes */
+/* Responsive Fixes */
+/* --- MOBILE HERO FIX --- */
 @media (max-width: 768px) {
   .hero {
+    /* 1. Change from center to flex-start to stop the upward push */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+
+    /* 2. Massive padding to clear the 80px navbar */
+    padding-top: 160px !important; 
     min-height: 100vh;
-    align-items: flex-start;
-    /* Massive padding increase to force text down */
-    padding-top: 200px; 
-    padding-left: 20px;
-    padding-right: 20px;
   }
 
   .hero__content {
-    padding-top: 0;
+    /* 3. Ensure no extra padding here is fighting the hero padding */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
     text-align: center;
-    width: 100%;
+    z-index: 2;
   }
 
   .hero__heading {
-    /* Slightly smaller for small phones */
-    font-size: 3.2rem !important; 
-    line-height: 1.1;
+    /* 4. Shrink slightly to ensure it fits the viewport */
+    font-size: 3.2rem !important;
+    line-height: 1;
+    margin-bottom: 15px;
   }
 
   .hero__actions {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
   }
 
+  /* 5. Same size buttons */
   .hero__btn-primary, 
-  .hero__btn-outline { /* Ensure both button types are identical size */
-    width: 240px; 
+  .hero__btn-outline {
+    width: 280px !important;
     padding: 16px 0;
     display: flex;
     justify-content: center;
-  }
-
-  .hero__stats {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero__stat-divider {
-    display: none;
-  }
-
-  .hero__scroll {
-    display: none;
+    box-sizing: border-box;
   }
 }
