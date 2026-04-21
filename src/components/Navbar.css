@@ -80,9 +80,9 @@
   border-radius: 4px;
 }
 
-/* Burger */
+/* Burger - Hidden on Desktop by default */
 .navbar__burger {
-  display: none;
+  display: none; 
   flex-direction: column;
   gap: 5px;
   padding: 4px;
@@ -123,63 +123,65 @@
 
 /* --- MOBILE SPECIFIC FIXES --- */
 @media (max-width: 900px) {
-  .navbar__links {
-    display: none;
-  }
-
-  .navbar__inner {
-    justify-content: space-between;
-  }
-
-  .navbar__cta {
-    display: flex;
-    padding: 8px 14px;
-    font-size: 0.7rem;
-    margin-left: auto; /* Pushes button and burger to the right */
-    margin-right: 12px; /* Gap between button and burger */
-  }
-
-  .navbar__burger {
-    display: flex;
-  }
-
-  .navbar__mobile {
-    display: flex;
-  }
-}
-
-@media (max-width: 900px) {
   .navbar {
-    /* Restore transparency with a blur effect */
-    background: rgba(15, 15, 15, 0.5) !important; 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    height: 80px; 
+    background: rgba(15, 15, 15, 0.7) !important; 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 60px; 
+    padding: 0 16px;
     display: flex;
     align-items: center;
   }
 
   .navbar__inner {
-    display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; 
     width: 100%;
-    padding: 0 10px;
   }
 
+  .navbar__links {
+    display: none; 
+  }
+
+  /* PIN LOGO TO LEFT */
+  .navbar__logo {
+    margin-right: auto; 
+  }
+
+  .navbar__logo-text {
+    font-size: 0.85rem; 
+    letter-spacing: 0.05em;
+  }
+
+  /* FIXED: SMALLER JOIN NOW BUTTON */
   .navbar__cta {
     display: flex;
-    margin-left: auto; 
-    margin-right: 15px;
-    padding: 8px 16px;
-    font-size: 0.75rem;
-    background: var(--orange);
-    color: #fff;
-    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px !important; 
+    font-size: 0.6rem !important;   
+    height: 28px !important;        
+    margin-right: 10px;
     white-space: nowrap;
+    border-radius: 4px;
+    background: var(--orange);
+    color: var(--white);
+    font-weight: 700;
   }
 
+  /* FORCING BURGER TO SHOW ON MOBILE */
   .navbar__burger {
+    display: flex; 
+    gap: 4px;
+  }
+
+  .navbar__burger span {
+    width: 18px; 
+    height: 2px;
+    background: var(--white);
+  }
+
+  .navbar__mobile {
     display: flex;
+    top: 100%;
   }
 }
