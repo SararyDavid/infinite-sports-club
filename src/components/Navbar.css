@@ -10,6 +10,7 @@
   z-index: 1000;
   padding: 20px 28px;
   transition: background var(--transition-base), padding var(--transition-base), backdrop-filter var(--transition-base);
+  backdrop-filter: blur(10px);
 }
 
 .navbar--scrolled {
@@ -36,11 +37,6 @@
   flex-shrink: 0;
 }
 
-.navbar__logo-icon {
-  display: flex;
-  align-items: center;
-}
-
 .navbar__logo-text {
   font-family: var(--font-condensed);
   font-size: 1.15rem;
@@ -54,16 +50,15 @@
   color: var(--orange);
 }
 
-/* Links */
+/* Desktop Links */
 .navbar__links {
   display: flex;
   align-items: center;
   gap: 36px;
-}
-.navbar__links {
   flex: 1;
   justify-content: center;
 }
+
 .navbar__link {
   font-family: var(--font-condensed);
   font-size: 0.88rem;
@@ -75,42 +70,19 @@
   transition: color var(--transition-fast);
 }
 
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--orange);
-  transition: width var(--transition-base);
-}
-
-.navbar__link:hover,
-.navbar__link--active {
-  color: var(--white);
-}
-
-.navbar__link:hover::after,
-.navbar__link--active::after {
-  width: 100%;
-}
-
-/* CTA */
+/* CTA & Burger */
 .navbar__cta {
   flex-shrink: 0;
   padding: 10px 24px;
   font-size: 0.85rem;
 }
 
-/* Burger */
 .navbar__burger {
   display: none;
   flex-direction: column;
   gap: 5px;
   padding: 4px;
-  margin-left: auto;
-  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .navbar__burger span {
@@ -118,22 +90,7 @@
   width: 24px;
   height: 2px;
   background: var(--white);
-  border-radius: 2px;
   transition: all var(--transition-base);
-  transform-origin: center;
-}
-
-.navbar__burger--open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.navbar__burger--open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.navbar__burger--open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Menu */
@@ -145,15 +102,13 @@
   right: 0;
   background: rgba(15, 15, 15, 0.98);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--orange-glow);
-  padding: 24px 32px 32px;
+  padding: 24px 32px;
   flex-direction: column;
   gap: 20px;
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
-  transition: opacity var(--transition-base), transform var(--transition-base);
+  transition: all 0.25s ease;
 }
 
 .navbar__mobile--open {
@@ -162,89 +117,47 @@
   pointer-events: all;
 }
 
-.navbar__mobile-link {
-  font-family: var(--font-condensed);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray-pale);
-  padding: 8px 0;
-  border-bottom: 1px solid var(--white-10);
-  transition: color var(--transition-fast);
-}
-
-.navbar__mobile-link:hover {
-  color: var(--orange);
-}
-
-/* Responsive */
+/* Responsive Fixes */
+/* Responsive Fixes */
 @media (max-width: 900px) {
-  .navbar__links,
-  .navbar__cta {
+  .navbar__links {
     display: none;
+  }
+
+  .navbar__inner {
+    display: flex;
+    justify-content: space-between; /* Pushes Logo left, CTA group right */
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Wrap CTA and Burger in a group if possible, or just style CTA like this: */
+  .navbar__cta {
+    display: flex;
+    order: 2; /* Ensures it stays after the logo */
+    margin-left: auto; /* Pushes it against the burger */
+    margin-right: 15px;
+    padding: 8px 16px; 
+    font-size: 0.75rem;
+    height: 40px; /* Force a consistent height */
+    align-items: center;
+    white-space: nowrap;
   }
 
   .navbar__burger {
     display: flex;
-  }
-
-  .navbar__mobile {
-    display: flex;
+    order: 3;
   }
 }
 
 @media (max-width: 768px) {
-
   .navbar {
-    padding: 16px 18px;
-  }
-
-  .navbar--scrolled {
-    padding: 12px 18px;
-  }
-
-  .navbar__inner {
-    gap: 16px;
+    padding: 10px 15px; /* Tighter padding on mobile */
+    height: 70px; 
+    background: rgba(15, 15, 15, 0.98); /* Solid background to prevent text bleed */
   }
 
   .navbar__logo-text {
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
+    font-size: 0.85rem; /* Shrink logo text so it doesn't hit the button */
   }
-
-  .navbar__burger {
-    margin-left: auto;
-  }
-
-  /* Mobile menu fix */
-  .navbar__mobile {
-    padding: 18px 18px 24px;
-    gap: 14px;
-  }
-
-  .navbar__mobile-link {
-    font-size: 1.05rem;
-    padding: 10px 0;
-  }
-
-}
-
-@media (max-width: 900px) {
-
-  .navbar__cta {
-    width: auto;
-  }
-
-  .navbar__inner {
-    justify-content: space-between;
-  }
-}
-
-.navbar {
-  backdrop-filter: blur(10px);
-}
-
-.navbar__mobile {
-  transition: all 0.25s ease;
 }
