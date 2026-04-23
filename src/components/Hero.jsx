@@ -20,7 +20,7 @@ function Hero() {
         
 
         <h1 className="hero__heading fade-in-up" style={{ animationDelay: '0.2s' }}>
-          TrainY<br />
+          Train<br />
           <span className="hero__heading-accent">Without</span><br />
           Limits
         </h1>
